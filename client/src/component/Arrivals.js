@@ -3,23 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/context";
 
 const Arrivals = () => {
+  const [data, setData] = useState([]);
+
+  const [filteredItems, setFilteredItems] = useState([]);
   const { product, setProduct } = useContext(MyContext);
 
   const navigate = useNavigate();
-  const [filteredItems, setFilteredItems] = useState([]);
-  const [datas, setDatas] = useState([]);
+
   useEffect(() => {
     console.log("k" + window.innerWidth);
     fetch("http://localhost:5000/api/v1/phone/")
       .then((res) => res.json())
-      .then((data) => setDatas(data));
+      .then((data) => setData(data));
   }, []);
 
   useEffect(() => {
     const filt =
-      datas.items && datas.items.filter((item) => item.tags === "new arrivals");
+      data.items && data.items.filter((item) => item.tags === "new arrivals");
     setFilteredItems(filt);
-  }, [datas.items]);
+  }, [data.items]);
 
   return (
     <section className="arrivals">

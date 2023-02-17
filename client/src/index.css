@@ -503,3 +503,18 @@ nav .nav-menu {
   border-radius: 10px;
   height: 3em;
 }
+
+.ads {
+  padding: 1% 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+
+}
+
+.ads>article {
+  width: 49%;
+  background: black;
+  padding: 5em 0;
+}

@@ -1,22 +1,28 @@
-import React, { useState, useEffect } from "react";
-import str from "../photos/tecno.png";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../context/context";
 
 const Arrivals = () => {
+  const { product, setProduct } = useContext(MyContext);
+
+  const [data, setData] = useState([]);
+
   const [filteredItems, setFilteredItems] = useState([]);
-  const [datas, setDatas] = useState([]);
+
+  const navigate = useNavigate();
   useEffect(() => {
     console.log("k" + window.innerWidth);
     fetch("http://localhost:5000/api/v1/phone/")
       .then((res) => res.json())
-      .then((data) => setDatas(data));
+      .then((data) => setData(data));
   }, []);
 
   useEffect(() => {
     const filt =
-      datas.items && datas.items.filter((item) => item.tags === "best selling");
+      data.items && data.items.filter((item) => item.tags === "best selling");
     setFilteredItems(filt);
     console.log(filteredItems);
-  }, [datas.items]);
+  }, [data.items]);
 
   return (
     <section className="arrivals">
@@ -42,7 +48,20 @@ const Arrivals = () => {
         {filteredItems &&
           filteredItems.map((item) => {
             return (
-              <section>
+              <section
+                onClick={() => {
+                  navigate(`/${item.name}${item.model}`);
+                  setProduct({
+                    image: item.image,
+                    name: item.name,
+                    price: item.price,
+                    specs: item.specs,
+                    model: item.model,
+                    qty: item.qty,
+                  });
+                  console.log(product);
+                }}
+              >
                 <img src={item.image} alt="" />
                 <div className="phone-details">
                   {" "}

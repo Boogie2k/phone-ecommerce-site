@@ -21,6 +21,9 @@ function App() {
   const [cart, setCart] = useState([]);
   const [qty, setQty] = useState(1);
   const [checkout, setCheckout] = useState([]);
+
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [datas, setDatas] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/v1/phone/").then((res) =>
       res.json().then((data) => {
@@ -44,6 +47,10 @@ function App() {
             setQty,
             checkout,
             setCheckout,
+            filteredItems,
+            setFilteredItems,
+            datas,
+            setDatas,
           }}
           menuNav
         >
@@ -68,6 +75,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<Error />} />
+           
           </Routes>
         </MyContext.Provider>
       </div>

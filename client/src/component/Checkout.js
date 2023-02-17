@@ -29,11 +29,24 @@ const Checkout = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    var templateParams = {
+      fullname: fullname,
+      email: email,
+      city: city,
+      phone: phone,
+      state: state,
+      phoneName: finalLists.map((item) => {
+        return `${item.name} ${item.model} $${item.price}`;
+      }),
+      sum: `$${sum}`,
+    };
+
     emailjs
-      .sendForm(
+      .send(
         "service_anfskt6",
         "template_ob4rxws",
-        event.target,
+
+        templateParams,
         "rN075nTbsHHFAVFog"
       )
       .then(
@@ -54,49 +67,49 @@ const Checkout = () => {
         <p>fullname*</p>
         <input
           type="text"
-          /* value={fullname}
+          value={fullname}
           onChange={(e) => {
             setFullname(e.target.value);
-          }} */
+          }}
           name="fullname"
         />
         <p>town/city*</p>
         <input
           type="text"
-          /*  onChange={(e) => {
+          onChange={(e) => {
             setCity(e.target.value);
           }}
-          value={city} */
+          value={city}
           name="city"
         />
         <p>state*</p>
         <input
           type="text"
-          /*   onChange={(e) => {
+          onChange={(e) => {
             setState(e.target.value);
           }}
-          value={state} */
+          value={state}
           name="state"
         />
         <p>email*</p>
         <input
           type="text"
-          /* onChange={(e) => {
+          onChange={(e) => {
             setEmail(e.target.value);
           }}
-          value={email} */
+          value={email}
           name="email"
         />
         <p>phone*</p>
         <input
           type="text"
-          /*  onChange={(e) => {
+          onChange={(e) => {
             setPhone(e.target.value);
           }}
-          value={phone} */
+          value={phone}
           name="fullname"
         />{" "}
-        {finalLists.map((item) => {
+        {/*  {finalLists.map((item) => {
           return (
             <div>
               <input
@@ -106,38 +119,37 @@ const Checkout = () => {
               />{" "}
             </div>
           );
-        })}
-        <button type="submit">Place order</button>
-      </form>
-      <h2>Your order</h2>
-      <div className="checkout-order">
-        <article>
-          {" "}
-          <h4 className="left">Product</h4> <h4 className="right">Total</h4>
-        </article>
-        {finalLists.map((item) => {
-          return (
-            <article>
-              {" "}
-              <p className="left">
-                {item.name} {item.model}
-              </p>{" "}
-              <p className="right">{item.price}</p>
-            </article>
-          );
-        })}
-        <article>
-          <h4 className="left">Total</h4> <h4 className="right">{sum}</h4>
-        </article>
-      </div>
-      <div className="place-order">
-        <p>
-          Please contact us if you have any complaints or to make any additional
-          changes
-        </p>
+        })} */}
+        <h2>Your order</h2>
+        <div className="checkout-order">
+          <article>
+            {" "}
+            <h4 className="left">Product</h4> <h4 className="right">Total</h4>
+          </article>
+          {finalLists.map((item) => {
+            return (
+              <article>
+                {" "}
+                <p className="left">
+                  {item.name} {item.model}
+                </p>{" "}
+                <p className="right">{item.price}</p>
+              </article>
+            );
+          })}
+          <article>
+            <h4 className="left">Total</h4> <h4 className="right">{sum}</h4>
+          </article>
+        </div>
+        <div className="place-order">
+          <p>
+            Please contact us if you have any complaints or to make any
+            additional changes
+          </p>
 
-        <button type="submit">Place order</button>
-      </div>{" "}
+          <button type="submit">Place order</button>
+        </div>{" "}
+      </form>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Banner from "./Banner";
 import Deals from "./Deals";
 import Selling from "./Selling";
+import Ads from "./Ads";
 
 const Home = () => {
   const [filteredItems, setFilteredItems] = useState([]);
@@ -36,6 +37,7 @@ const Home = () => {
       <Hero />
       <Arrivals />
       <Banner />
+      <Ads />
       <Deals />
 
       <Selling />
