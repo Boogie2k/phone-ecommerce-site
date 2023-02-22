@@ -163,7 +163,7 @@ nav .nav-menu {
 
 .arrivals>article section {
 
-  padding: 1%;
+  padding: 2%;
   width: 11em;
   margin-right: 1%;
   box-shadow: 3px 3px 5px #fff,
@@ -347,7 +347,7 @@ nav .nav-menu {
 
 .product p {
   font-size: 1.5rem;
-  color: blue;
+  color: black;
 }
 
 .product .qty {
@@ -371,6 +371,29 @@ nav .nav-menu {
   background: green;
   border: 0;
   margin-top: 1em;
+}
+
+.product .specs-div {
+  margin-top: 1%;
+  padding: 1% 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.product .specs-div>div {
+  width: 48%;
+
+}
+
+.product .specs-div>div>h5 {
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.product .specs-div .left {
+  border-right: 1px solid black;
 }
 
 .cart {
@@ -517,4 +540,92 @@ nav .nav-menu {
   width: 49%;
   background: black;
   padding: 5em 0;
+}
+
+footer {
+  margin-top: 5%;
+  background: #000;
+  min-height: 29.8125em;
+  color: white;
+}
+
+footer {
+  padding-top: 4.375em;
+}
+
+footer .copy-right {
+  margin-top: 6.25em;
+}
+
+footer .s {
+
+  width: 7.7625em;
+
+}
+
+footer .s h5 {
+  font-family: 'poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11.5px;
+  line-height: 14px;
+
+  /* identical to box height */
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+footer .s article {
+  text-align: left;
+}
+
+footer input {
+
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+.catalogue {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  padding: 10% 4% 1%
+}
+
+
+.catalogue .phone-box {
+  padding: 6%;
+  width: 11em;
+  margin-right: 1%;
+  box-shadow: 3px 3px 5px #fff,
+    -3px -3px 5px #000;
+  border-radius: 49px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 4% 0;
+}
+
+.catalogue img {
+  width: 95%;
+  height: 10em;
+
+}
+
+.catalogue .phone-box:hover {
+  box-shadow: 6px 6px 10px #000,
+    -6px -6px 10px #fff;
+}
+
+
+
+.catalogue .phone-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 auto;
+
 }

@@ -58,14 +58,18 @@ const Navbar = () => {
             {" "}
             <li> Home</li>
           </a>
-          <a href="#">
+          <Link to="/catalogue">
             {" "}
             <li>Catalogue</li>
-          </a>
+          </Link>
+
           <a href="#">
             {" "}
             <li>Contact</li>
           </a>
+          <Link to="/cart">
+            <li>cart</li>
+          </Link>
         </ul>
         <article>
           {user ? (
@@ -116,9 +120,9 @@ const Navbar = () => {
         <a href="#">
           <li>Home</li>
         </a>{" "}
-        <a href="#">
+        <Link to="/catalogue">
           <li>Catalogue</li>
-        </a>
+        </Link>
         <Link to="/cart">
           <li>cart</li>
         </Link>

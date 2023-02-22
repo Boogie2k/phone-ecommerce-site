@@ -14,6 +14,7 @@ import Product from "./component/Product";
 import Cart from "./component/Cart";
 import Checkout from "./component/Checkout";
 import Footer from "./component/Footer";
+import Catalogue from "./component/Catalogue";
 
 function App() {
   const [menuNav, setMenuNav] = useState(false);
@@ -75,6 +76,7 @@ function App() {
               })}
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/catalogue" element={<Catalogue />} />
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

@@ -1,7 +1,11 @@
 import React from "react";
 import { MyContext } from "../context/context";
 import { useContext, useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 const Product = ({ id }) => {
+  const markdownContent = `# test
+    
+    This is some **bold** text.\n\n- First item\n- Second item\n- Third item`;
   const { product, setProduct, cart, setCart, qty, setQty } =
     useContext(MyContext);
 
@@ -22,7 +26,6 @@ const Product = ({ id }) => {
             {product.name} {product.model} <span></span>
           </h4>{" "}
           <p>{product.price}</p>
-          <p>{product.description}</p>
           <div className="qty">
             {" "}
             {/* <button
@@ -65,6 +68,22 @@ const Product = ({ id }) => {
           </button>
         </div>
       </article>
+      {console.log(product.specs)}
+      <div className="specs-div">
+        {" "}
+        <div className="left">
+          <h5> Specifications </h5>
+          <ReactMarkdown style={{ color: "black" }}>
+            {product.specs}
+          </ReactMarkdown>
+        </div>
+        <div>
+          <h5>Details</h5>
+          <ReactMarkdown style={{ color: "black" }}>
+            {product.description}
+          </ReactMarkdown>
+        </div>
+      </div>
     </div>
   );
 };
