@@ -12,7 +12,7 @@ const Arrivals = () => {
   const navigate = useNavigate();
   useEffect(() => {
     console.log("k" + window.innerWidth);
-    fetch("http://localhost:5000/api/v1/phone/")
+    fetch("https://nebtechserver.onrender.com/api/v1/phone")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

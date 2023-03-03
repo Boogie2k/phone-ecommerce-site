@@ -40,7 +40,7 @@ const Items = () => {
 
   const updateItem = (_id) => {
     phones &&
-      fetch(`http://localhost:5000/api/v1/phone/${ids}`, {
+      fetch(`https://nebtechserver.onrender.com/api/v1/phone/${ids}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -61,16 +61,17 @@ const Items = () => {
   };
 
   const getSingleItem = (_id) => {
-    fetch(`http://localhost:5000/api/v1/phone/${_id}`).then((res) =>
-      res.json().then((data) => {
-        setPhones(phones.filter((phone) => phone._id == _id));
-      })
+    fetch(`https://nebtechserver.onrender.com/api/v1/phone/${_id}`).then(
+      (res) =>
+        res.json().then((data) => {
+          setPhones(phones.filter((phone) => phone._id == _id));
+        })
     );
   };
 
   const handleDelete = (_id) => {
     phones &&
-      fetch(`http://localhost:5000/api/v1/phone/${_id}`, {
+      fetch(`https://nebtechserver.onrender.com/api/v1/phone/${_id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -82,7 +83,7 @@ const Items = () => {
       );
   };
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/phone").then((res) =>
+    fetch("https://nebtechserver.onrender.com/api/v1/phone").then((res) =>
       res.json().then((data) => setPhones(data.items))
     );
   }, []);

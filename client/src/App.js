@@ -27,7 +27,7 @@ function App() {
   const [filteredItems, setFilteredItems] = useState([]);
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/phone/").then((res) =>
+    fetch("https://nebtechserver.onrender.com/api/v1/phone").then((res) =>
       res.json().then((data) => {
         setPages(data.items);
       })

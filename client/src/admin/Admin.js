@@ -12,7 +12,7 @@ const Admin = () => {
   const navigate = useNavigate();
 
   let populateQuote = async () => {
-    await fetch("http:localhost/api/v1/quote", {
+    await fetch("https://nebtechserver.onrender.com/api/v1/phone", {
       headers: {
         "x-access-tokens": localStorage.getItem("token"),
       },
